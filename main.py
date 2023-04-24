@@ -1,9 +1,9 @@
 from decouple import config
-from story_bot import client
+from story_bot import bot
 
 
 def main():
-    client.run(config('BOT_TOKEN'))
+    bot.run(config('BOT_TOKEN'))
 
 
 if __name__ == '__main__':
