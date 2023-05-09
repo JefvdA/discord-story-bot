@@ -1,6 +1,7 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
+from discord import FFmpegPCMAudio
 
 
 class SpeakCog(commands.Cog):
@@ -12,5 +13,7 @@ class SpeakCog(commands.Cog):
         voice_channel_id = interaction.user.voice.channel.id
         voice_channel = await self.bot.fetch_channel(voice_channel_id)
         if isinstance(voice_channel, discord.VoiceChannel):
-            await voice_channel.connect()
+            voice = await voice_channel.connect()
+            source = FFmpegPCMAudio('audio.mp3')
+            await voice.play(source)
         await interaction.response.send_message(f'Hi {interaction.user.display_name}, I have joined your voice channel!')
