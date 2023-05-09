@@ -1,2 +1,3 @@
 discord.py[voice]
 python-decouple
+ffmpeg
